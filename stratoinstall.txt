@@ -1,0 +1,58 @@
+511469931.swh.strato-hosting.eu
+VUEyViFGS2l4dEg4UnNB
+
+inlog voor strato mhactiviteitenlogger
+
+klant login
+
+user 76538487
+ww:Gerard1957
+database ww:Gerard1957
+
+
+wildeast ftp
+
+host ssh.strato.com
+
+username 511469931.swh.strato-hosting.eu
+ww:Gerard1957
+
+
+stato tutorial
+
+- alles in public in root doen, dus js css folder index.php etc
+- de rest zonder nodes modules folder zippen
+-env aanpassen: Strato databasebeheer tab, kan je database vinden en gebruikersnaam
+- index.php aanpassen met
+
+require __DIR__.'/./setup/vendor/autoload.php'
+
+$app = require_once __DIR__.'/./setup/bootstrap/app.php';
+
+setup is naam folder rest van stuff
+
+add aan route de volgede code
+
+Route::get('foo', function(){
+    $targetFolder = $_SERVER['DOCUMENT_ROOT'].'/setup/storage/app/public';
+    $linkFolder = $_SERVER['DOCUMENT_ROOT'].'/storage';
+    symlink($targetFolder, $linkFolder);
+    return 'success';
+});
+
+
+moet wel de path aanpassen als je geen setup folder gevruikt
+
+
+1: add database sizzle
+2: maak info email adres
+3: create symlink
+4: upload stuff naar database
+5: verander index.php
+5: pas email adres in controller aan info@511445105.swh.strato-hosting.eu
+6: pas mollie env aan
+7: disable debug
+
+require __DIR__.'/./setup/vendor/autoload.php'
+
+$app = require_once __DIR__.'/./setup/bootstrap/app.php';
